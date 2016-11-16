@@ -123,4 +123,25 @@ If you do a `git pull`, you’ll create a merge commit which includes both lines
 
 If you run a `git log`, you’ll see two commits that have the same author, date, and message, which will be confusing. Furthermore, if you push this history back up to the server, which can further confuse people.
 
+## Rebase When You Rebase
+
+In addition to the commit SHA-1 checksum, Git also calculates a checksum that is based just on the patch introduced with the commit. This is called a “patch-id”. 
+
+If you pull down work that was rewritten and rebase it on top of the new commits from your partner, Git can often successfully figure out what is uniquely yours and apply them back on top of the new branch.
+
+For example,
+
+<img width="570" alt="screen shot 2016-11-16 at 3 21 49 pm" src="https://cloud.githubusercontent.com/assets/600040/20336816/6bf3cc7a-ac10-11e6-9b03-58cf35b13c58.png">
+
+- Determine what work is unique to our branch (`C2`, `C3`, `C4`, `C6`, `C7`)
+- Determine which are not merge commits (`C2`, `C3`, `C4`)
+- Determine which have not been rewritten into the target branch (just `C2` and `C3`, since `C4` is the same patch as `C4'`)
+- Apply those commits to the top of `teamone/master`
+
+<img width="584" alt="screen shot 2016-11-16 at 3 09 27 pm" src="https://cloud.githubusercontent.com/assets/600040/20336589/b2c8eba0-ac0e-11e6-9448-ca80db9ed5fe.png">
+
+This only works if C4 and C4' that your partner made are almost exactly the same patch.
+
+
+
 ## Rebase vs. Merge
