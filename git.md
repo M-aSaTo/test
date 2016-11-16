@@ -28,3 +28,9 @@ Applying: added staged command
 You can take the patch of the change that was introduced in `C4` and reapply it on top of `C3`.
 
 <img width="593" alt="screen shot 2016-11-16 at 1 29 14 pm" src="https://cloud.githubusercontent.com/assets/600040/20334827/b523b87a-ac00-11e6-98fd-28c766c84f8b.png">
+
+
+```
+$ git checkout master
+$ git merge experiment
+```
