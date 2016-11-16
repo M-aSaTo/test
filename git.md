@@ -71,3 +71,34 @@ $ git merge client
 ```
 
 <img width="591" alt="screen shot 2016-11-16 at 2 24 10 pm" src="https://cloud.githubusercontent.com/assets/600040/20335739/6338223c-ac08-11e6-964e-07cacf445011.png">
+
+You can rebase the `server` branch onto the `master` branch without having to check it out first by running `git rebase [basebranch] [topicbranch]`:
+
+```
+$ git rebase master server
+```
+
+It's means:
+
+```
+$ git checkout server
+$ git rebase master
+```
+
+<img width="578" alt="screen shot 2016-11-16 at 2 32 35 pm" src="https://cloud.githubusercontent.com/assets/600040/20335906/aa85cf58-ac09-11e6-8035-21784d9a2690.png">
+
+Then, you can fast-forward the `master` branch:
+
+```
+$ git checkout master
+$ git merge server
+```
+
+and remove the `client` and `server` branch:
+
+```
+$ git branch -d client
+$ git branch -d server
+```
+
+<img width="580" alt="screen shot 2016-11-16 at 2 35 16 pm" src="https://cloud.githubusercontent.com/assets/600040/20335951/ecc316d2-ac09-11e6-9f75-e42217871e30.png">
