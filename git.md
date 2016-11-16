@@ -102,3 +102,24 @@ $ git branch -d server
 ```
 
 <img width="580" alt="screen shot 2016-11-16 at 2 35 16 pm" src="https://cloud.githubusercontent.com/assets/600040/20335951/ecc316d2-ac09-11e6-9f75-e42217871e30.png">
+
+## The Perils of Rebasing
+
+**Do not rebase commits that exist outside your repository.**
+
+<img width="590" alt="screen shot 2016-11-16 at 2 46 41 pm" src="https://cloud.githubusercontent.com/assets/600040/20336177/83bcc118-ac0b-11e6-84f7-7e0a805468bc.png">
+
+Someone else does more work that includes a merge, and pushes that work to the central server. You fetch it and merge the new remote branch into your work, making your history look something like this:
+
+<img width="579" alt="screen shot 2016-11-16 at 2 47 44 pm" src="https://cloud.githubusercontent.com/assets/600040/20336211/b10bd708-ac0b-11e6-878d-bb2ff8213ba3.png">
+
+Next, the person who pushed the merged work decides to go back and rebase their work instead; they do a `git push --force` to overwrite the history on the server. You then fetch from that server, bringing down the new commits.
+
+<img width="576" alt="screen shot 2016-11-16 at 2 53 21 pm" src="https://cloud.githubusercontent.com/assets/600040/20336304/735ee142-ac0c-11e6-8944-3bab48e36eef.png">
+
+If you do a `git pull`, you’ll create a merge commit which includes both lines of history:
+
+<img width="576" alt="screen shot 2016-11-16 at 2 55 07 pm" src="https://cloud.githubusercontent.com/assets/600040/20336338/b2c220b0-ac0c-11e6-8b7b-aa1551c15b20.png">
+
+
+## Rebase vs. Merge
