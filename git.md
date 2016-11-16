@@ -161,8 +161,14 @@ If you are using `git pull` and want to make `--rebase` the default, you can set
 
 ## Rebase vs. Merge
 
+Which one is better "Rebase" or "Merge"? It depends on what history means for you.
+
 History means:
 
 **Record of what actually happened**
 
+Merge is better.
+
 **Story of how your project was made**
+
+Rebase is better.
