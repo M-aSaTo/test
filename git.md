@@ -159,3 +159,7 @@ If you are using `git pull` and want to make `--rebase` the default, you can set
 
 
 ## Rebase vs. Merge
+
+**Record of what actually happened**
+
+
