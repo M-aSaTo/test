@@ -121,5 +121,6 @@ If you do a `git pull`, you’ll create a merge commit which includes both lines
 
 <img width="576" alt="screen shot 2016-11-16 at 2 55 07 pm" src="https://cloud.githubusercontent.com/assets/600040/20336338/b2c220b0-ac0c-11e6-8b7b-aa1551c15b20.png">
 
+If you run a `git log`, you’ll see two commits that have the same author, date, and message, which will be confusing. Furthermore, if you push this history back up to the server, which can further confuse people.
 
 ## Rebase vs. Merge
