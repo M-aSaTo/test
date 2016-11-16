@@ -54,3 +54,20 @@ There is no difference in the end product of the integration, but the history is
 - `client` –  make the client-side changes and committed a few times.
 
 You want to merge your client-side changes into your mainline for a release, but you want to hold off on the server-side changes until it’s tested further.
+
+You can take the changes on client that aren’t on server (`C8` and `C9`) and replay them on your master branch by using the `--onto` option of git rebase:
+
+```
+$ git rebase --onto master server client
+```
+
+This basically says, “Check out the client branch, figure out the patches from the common ancestor of the `client` and `server` branches, and then replay them onto master.”
+
+After that, you can fast-forward your master branch:
+
+```
+$ git checkout master
+$ git merge client
+```
+
+<img width="591" alt="screen shot 2016-11-16 at 2 24 10 pm" src="https://cloud.githubusercontent.com/assets/600040/20335739/6338223c-ac08-11e6-964e-07cacf445011.png">
